@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #09090b;
+  --card: #111116;
+  --elevated: #18181f;
+  --border: #27272a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: #f4f4f5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Input styles */
+.field-input {
+  @apply w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-100 placeholder-zinc-500
+         focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50
+         transition-all duration-200 text-sm;
+}
+
+.field-label {
+  @apply block text-xs font-medium text-zinc-400 uppercase tracking-wider mb-2;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg
+         bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm
+         transition-all duration-200 active:scale-[0.98] disabled:opacity-50
+         disabled:cursor-not-allowed disabled:active:scale-100;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
+         bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium text-sm
+         border border-zinc-700 hover:border-zinc-600
+         transition-all duration-200 active:scale-[0.98];
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
+         text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 font-medium text-sm
+         transition-all duration-200 active:scale-[0.98];
+}
+
+/* Card */
+.card {
+  @apply bg-zinc-900 border border-zinc-800 rounded-xl;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  #quote-print-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white !important;
+    color: #111 !important;
+    padding: 32px !important;
+  }
+
+  #quote-print-area * {
+    background: white !important;
+    color: #111 !important;
+    border-color: #d4d4d8 !important;
+  }
+
+  #quote-print-area .print-text-muted {
+    color: #71717a !important;
+  }
+
+  #quote-print-area .print-header {
+    border-bottom: 2px solid #e4e4e7 !important;
+  }
+
+  #quote-print-area thead {
+    background: #f4f4f5 !important;
+  }
+
+  #quote-print-area tfoot {
+    background: #f4f4f5 !important;
+  }
+}
